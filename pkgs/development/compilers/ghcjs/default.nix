@@ -47,8 +47,8 @@ mkDerivation (rec {
   src = fetchFromGitHub {
     owner = "ghcjs";
     repo = "ghcjs";
-    rev = "2ae1276a97c9f32c4b02080d1bb363cf0c2c553c";
-    sha256 = "18m1737w4bfn84cnwcf021gsy69c84dlkwxnyf4r5h97gly6jx7q";
+    rev = "7a915d1c510b1acc97cc570c81ca78dcc8f9c3ed";
+    sha256 = "05sw9j095kirndwgnjnh54fzn84yxf176dm9w3dpc0hiqayyxklp";
   };
   isLibrary = true;
   isExecutable = true;

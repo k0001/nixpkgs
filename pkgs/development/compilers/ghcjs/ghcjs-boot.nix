@@ -1,7 +1,7 @@
 { fetchgit }:
 fetchgit {
   url = git://github.com/ghcjs/ghcjs-boot.git;
-  rev = "39cd58e12f02fa99f493387ba4c3708819a72294";
-  sha256 = "0s7hvg60piklrg9ypa7r44l4qzvpinrgsaffak6fr7gd3k08wn9d";
+  rev = "cad49063e74bb0a38428fd587677a0adf1d01701";
+  sha256 = "0fmq70nh4ak3riby8f8gik5flvrkh28r2f6k4s2wb5gaw0a8bqa8";
   fetchSubmodules = true;
 }
