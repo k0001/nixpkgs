@@ -9,4 +9,9 @@ import ./nodejs.nix (args // rec {
     url = "http://nodejs.org/dist/v${version}/node-v${version}.tar.xz";
     sha256 = "0f6bbfbea525469c91932b1aac35e0810e6bcda96f1c720e42a433942ee66106";
   };
+
+  preBuild = stdenv.lib.optionalString stdenv.isDarwin ''
+    substituteInPlace src/util.h \
+      --replace "tr1/type_traits" "type_traits"
+  '';
 })
