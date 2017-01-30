@@ -1,5 +1,15 @@
-{ fetchFromGitHub, pkgs }:
-
+{ fetchFromGitHub
+, apacheHttpd
+, apr
+, aprutil
+, curl
+, expat
+, libbrotli
+, luajit
+, modsecurity_standalone
+, pam
+, yajl
+}:
 {
   brotli = {
     src = fetchFromGitHub {
@@ -8,7 +18,7 @@
       rev = "788615eab7c5e0a984278113c55248305620df14";
       sha256 = "02514bbjdhm9m38vljdh626d3c1783jxsxawv5c6bzblwmb8xgvf";
     };
-    inputs = [ pkgs.libbrotli ];
+    inputs = [ libbrotli ];
   };
 
   rtmp = {
@@ -27,7 +37,7 @@
       rev = "v0.0.3";
       sha256 = "1qck8jclxddncjad8yv911s9z7lrd58bp96jf13m0iqk54xghx91";
     };
-    inputs = [ pkgs.expat ];
+    inputs = [ expat ];
   };
 
   syslog = rec {
@@ -52,10 +62,10 @@
   };
 
   modsecurity = {
-    src = "${pkgs.modsecurity_standalone.nginx}/nginx/modsecurity";
-    inputs = [ pkgs.curl pkgs.apr pkgs.aprutil pkgs.apacheHttpd pkgs.yajl ];
+    src = "${modsecurity_standalone.nginx}/nginx/modsecurity";
+    inputs = [ curl apr aprutil apacheHttpd yajl ];
     preConfigure = ''
-      export NIX_CFLAGS_COMPILE="$NIX_CFLAGS_COMPILE -I${pkgs.aprutil.dev}/include/apr-1 -I${pkgs.apacheHttpd.dev}/include -I${pkgs.apr.dev}/include/apr-1 -I${pkgs.yajl}/include"
+      export NIX_CFLAGS_COMPILE="$NIX_CFLAGS_COMPILE -I${aprutil.dev}/include/apr-1 -I${apacheHttpd.dev}/include -I${apr.dev}/include/apr-1 -I${yajl}/include"
     '';
   };
 
@@ -84,10 +94,10 @@
       rev = "v0.10.5";
       sha256 = "0wz5j4kqa6hk7ar42bkxp0hd74psjy6sfsldh1a6p93z349iz4v5";
     };
-    inputs = [ pkgs.luajit ];
+    inputs = [ luajit ];
     preConfigure = ''
-      export LUAJIT_LIB="${pkgs.luajit}/lib"
-      export LUAJIT_INC="${pkgs.luajit}/include/luajit-2.0"
+      export LUAJIT_LIB="${luajit}/lib"
+      export LUAJIT_INC="${luajit}/include/luajit-2.0"
     '';
   };
 
@@ -116,7 +126,7 @@
       rev = "v1.4";
       sha256 = "068zwyrc1dji55rlaj2kx6n0v2n5rpj7nz26ipvz26ida712md35";
     };
-    inputs = [ pkgs.pam ];
+    inputs = [ pam ];
   };
 
   statsd = {
