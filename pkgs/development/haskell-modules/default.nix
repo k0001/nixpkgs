@@ -82,10 +82,7 @@ let
         callHackage = name: version: self.callPackage (hackage2nix name version);
 
         # Creates a Haskell package from a source package by calling cabal2nix on the source.
-        callCabal2nix = src: self.callPackage (haskellSrc2nix {
-          inherit src;
-          name = src.name;
-        });
+        callCabal2nix = name: src: self.callPackage (haskellSrc2nix { inherit src name; });
 
         ghcWithPackages = selectFrom: withPackages (selectFrom self);
 
