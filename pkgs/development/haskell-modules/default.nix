@@ -55,7 +55,7 @@ let
         inherit packages;
       };
 
-      haskellSrc2nix = { name, src, sha256 ? null }:
+      haskellSrc2nix = { src, name ? "src", sha256 ? null }:
         let
           sha256Arg = if isNull sha256 then "" else ''--sha256="${sha256}"'';
         in pkgs.stdenv.mkDerivation {
