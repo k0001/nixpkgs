@@ -387,7 +387,7 @@ in
       }
 
       // optionalAttrs cfg.distributedBuilds {
-        NIX_BUILD_HOOK = "${nix}/libexec/nix/build-remote.pl";
+        NIX_BUILD_HOOK = "${nix}/libexec/nix/build-remote";
         NIX_REMOTE_SYSTEMS = "/etc/nix/machines";
         NIX_CURRENT_LOAD = "/run/nix/current-load";
       };
