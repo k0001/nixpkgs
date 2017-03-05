@@ -338,7 +338,7 @@ in
     environment.etc."nix/nix.conf".source = nixConf;
 
     # List of machines for distributed Nix builds in the format
-    # expected by build-remote.pl.
+    # expected by build-remote.
     environment.etc."nix/machines" =
       { enable = cfg.buildMachines != [];
         text =
@@ -389,7 +389,7 @@ in
       }
 
       // optionalAttrs cfg.distributedBuilds {
-        NIX_BUILD_HOOK = "${nix}/libexec/nix/build-remote.pl";
+        NIX_BUILD_HOOK = "${nix}/libexec/nix/build-remote";
         NIX_REMOTE_SYSTEMS = "/etc/nix/machines";
         NIX_CURRENT_LOAD = "/run/nix/current-load";
       };
