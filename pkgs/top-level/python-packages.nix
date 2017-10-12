@@ -149,6 +149,8 @@ in {
 
   bugseverywhere = callPackage ../applications/version-management/bugseverywhere {};
 
+  btchip = callPackage ../development/python-modules/btchip { };
+
   dbf = callPackage ../development/python-modules/dbf { };
 
   dbfread = callPackage ../development/python-modules/dbfread { };
@@ -27045,7 +27047,7 @@ EOF
 
   preshed = callPackage ../development/python-modules/preshed { };
 
-  backports_weakref = callPackage ../development/python-modules/backports_weakref { }; 
+  backports_weakref = callPackage ../development/python-modules/backports_weakref { };
 
   thinc = callPackage ../development/python-modules/thinc { };
 
@@ -27054,7 +27056,7 @@ EOF
   behave = callPackage ../development/python-modules/behave { };
 
   pyhamcrest = callPackage ../development/python-modules/pyhamcrest { };
- 
+
   parse = callPackage ../development/python-modules/parse { };
 
   parse-type = callPackage ../development/python-modules/parse-type { };
